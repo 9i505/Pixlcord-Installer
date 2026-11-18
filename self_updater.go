@@ -49,15 +49,15 @@ func init() {
 }
 
 func GetInstallerDownloadLink() string {
-	const BaseUrl = "https://github.com/viciouscal/Installer/releases/latest/download/"
+	const BaseUrl = "https://github.com/9i505/Pixlcord-Installer/releases/latest/download/"
 	switch runtime.GOOS {
 	case "windows":
-		filename := Ternary(buildinfo.UiType == buildinfo.UiTypeCli, "VencordInstallerCli.exe", "VencordInstaller.exe")
+		filename := Ternary(buildinfo.UiType == buildinfo.UiTypeCli, "PixlcordInstallerCli.exe", "PixlcordInstaller.exe")
 		return BaseUrl + filename
 	case "darwin":
-		return BaseUrl + "VencordInstaller.dmg"
+		return BaseUrl + "PixlcordInstaller.dmg"
 	case "linux":
-		return BaseUrl + "VencordInstallerCli-linux"
+		return BaseUrl + "PixlcordInstallerCli-linux"
 	default:
 		return ""
 	}
@@ -87,7 +87,7 @@ func UpdateSelf() error {
 
 	ownExeDir := path.Dir(ownExePath)
 
-	stage, err := os.MkdirTemp(ownExeDir, ".VencordAR-update-")
+	stage, err := os.MkdirTemp(ownExeDir, ".Pixlcord-update-")
 	if err != nil {
 		return err
 	}

@@ -1,4 +1,4 @@
-# Vencord Arab Installer
+# Pixlcord Installer
 
 ## Fork testing and releases
 
@@ -11,8 +11,8 @@ English. IBM Plex's SIL Open Font License and the Unicode data license are in
 static GUI translations. Localized text is stored in logical order in
 `assets/ar.json`; shaping is applied only for display.
 
-This fork installs `viciouscal/Vencord` and checks installer updates from
-`viciouscal/Installer`. If the GitHub REST API fails (including HTTP 403 or
+This fork installs `9i505/Pixlcord` and checks installer updates from
+`9i505/Pixlcord-Installer`. If the GitHub REST API fails (including HTTP 403 or
 429), release metadata is read from that same fork's public release page and
 expanded asset list. This fallback depends on GitHub's HTML structure; it does
 not bypass a block on github.com itself.
@@ -32,12 +32,12 @@ tags, and their assets are retained. Publishing the draft is a separate manual
 step. macOS signing uses configured Apple secrets when present; otherwise builds
 use ad hoc signing. Notarization runs only when its credentials are configured. Winget submissions run only in the official repository.
 
-The Vencord Arab Installer installs [Vencord Arab](https://github.com/viciouscal/Vencord)
+The Pixlcord Installer installs [Pixlcord](https://github.com/9i505/Pixlcord)
 
 
 ## Usage
 
-See https://github.com/viciouscal/Installer/releases
+See https://github.com/9i505/Pixlcord-Installer/releases
 
 ## Building from source
 
@@ -94,4 +94,4 @@ make
 ```
 
 You might want to pass some flags to this command to get a better build.
-See [the GitHub workflow](https://github.com/viciouscal/Installer/blob/main/.github/workflows/release.yml) for what flags I pass or if you want more precise instructions
+See [the GitHub workflow](https://github.com/9i505/Pixlcord-Installer/blob/main/.github/workflows/release.yml) for what flags I pass or if you want more precise instructions

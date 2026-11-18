@@ -59,7 +59,7 @@ func patchAppAsar(dir string) (err error) {
 	appAsar := path.Join(dir, "app.asar")
 	_appAsar := path.Join(dir, "_app.asar")
 
-	stage, err := os.MkdirTemp(dir, ".VencordAR-patch-")
+	stage, err := os.MkdirTemp(dir, ".Pixlcord-patch-")
 	if err != nil {
 		return err
 	}

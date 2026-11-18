@@ -78,7 +78,7 @@ func readInstalledHash() {
 
 	defer f.Close()
 
-	Log.Debug("Found existing Vencord Arab Install. Checking for hash...")
+	Log.Debug("Found existing Pixlcord Install. Checking for hash...")
 	scanner := bufio.NewScanner(f)
 	if scanner.Scan() {
 		line := scanner.Text()

@@ -5,15 +5,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>Vencord Arab Installer</string>
+	<string>Pixlcord Installer</string>
 	<key>CFBundleExecutable</key>
-	<string>VencordInstaller</string>
+	<string>PixlcordInstaller</string>
 	<key>CFBundleIdentifier</key>
-	<string>io.github.viciouscal.vencordarinstaller</string>
+	<string>io.github.9i505.pixlcordinstaller</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Vencord Arab Installer</string>
+	<string>Pixlcord Installer</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

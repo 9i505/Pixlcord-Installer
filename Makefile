@@ -41,9 +41,9 @@ endif
 endif
 
 MACOS_ARCHS := $(ARCH)
-WINDOWS_BINARY := VencordInstaller$(POSTFIX).exe
+WINDOWS_BINARY := PixlcordInstaller$(POSTFIX).exe
 ifeq ($(GUI),1)
-WINDOWS_BINARY := VencordInstaller.exe
+WINDOWS_BINARY := PixlcordInstaller.exe
 endif
 ifeq ($(ARCH),universal)
 MACOS_ARCHS := amd64 arm64
@@ -74,34 +74,34 @@ ifeq ($(ARCH),universal)
 	rm build/installer-amd64 build/installer-arm64
 endif
 ifeq ($(GUI),1)
-	cp -R macos/VencordInstaller.app build/VencordInstaller.app
-	/usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $(VERSION)" build/VencordInstaller.app/Contents/Info.plist
-	/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $(HASH)" build/VencordInstaller.app/Contents/Info.plist
+	cp -R macos/PixlcordInstaller.app build/PixlcordInstaller.app
+	/usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $(VERSION)" build/PixlcordInstaller.app/Contents/Info.plist
+	/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $(HASH)" build/PixlcordInstaller.app/Contents/Info.plist
 ifeq ($(ARCH),universal)
-	mv build/installer-universal build/VencordInstaller.app/Contents/MacOS/VencordInstaller
+	mv build/installer-universal build/PixlcordInstaller.app/Contents/MacOS/PixlcordInstaller
 else
-	mv build/installer-$(ARCH) build/VencordInstaller.app/Contents/MacOS/VencordInstaller
+	mv build/installer-$(ARCH) build/PixlcordInstaller.app/Contents/MacOS/PixlcordInstaller
 endif
-	codesign --deep --force --options runtime --sign "$(IDENTITY)" build/VencordInstaller.app
+	codesign --deep --force --options runtime --sign "$(IDENTITY)" build/PixlcordInstaller.app
 ifeq ($(DMG),1)
 ifeq ($(shell command -v create-dmg 2>/dev/null),)
 	$(error create-dmg is not installed)
 endif
 	create-dmg \
-		--volname "Vencord Arab Installer" \
+		--volname "Pixlcord Installer" \
 		--volicon macos/dmg.icns \
 		--background "macos/background.png" \
 		--window-pos 200 120 \
 		--window-size 510 340 \
 		--icon-size 100 \
-		--icon VencordInstaller.app 160 155 \
-		--hide-extension VencordInstaller.app \
+		--icon PixlcordInstaller.app 160 155 \
+		--hide-extension PixlcordInstaller.app \
 		--app-drop-link 350 155 \
-		build/VencordInstaller.dmg \
-		build/VencordInstaller.app
+		build/PixlcordInstaller.dmg \
+		build/PixlcordInstaller.app
 endif
 else
-	mv build/installer-$(ARCH) build/VencordInstallerCli-$(PLATFORM)
+	mv build/installer-$(ARCH) build/PixlcordInstallerCli-$(PLATFORM)
 endif
 
 else ifeq ($(PLATFORM),windows)
@@ -119,8 +119,8 @@ else
 		-v \
 		-tags "$(TAGS)" \
 		-ldflags "$(LDFLAGS)" \
-		-o build/VencordInstaller$(POSTFIX)-$(PLATFORM)
-	chmod +x build/VencordInstaller$(POSTFIX)-$(PLATFORM)
+		-o build/PixlcordInstaller$(POSTFIX)-$(PLATFORM)
+	chmod +x build/PixlcordInstaller$(POSTFIX)-$(PLATFORM)
 endif
 
 clean:

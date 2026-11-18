@@ -58,7 +58,7 @@ func translatedUI(text string) string {
 	if strings.HasPrefix(text, "Error: Failed to create: ") {
 		return "خطأ: تعذر إنشاء المجلد:\n" + strings.TrimPrefix(text, "Error: Failed to create: ")
 	}
-	return strings.ReplaceAll(text, " (Vencord Arab Installed)", " (تم تثبيت فينكورد العرب)")
+	return strings.ReplaceAll(text, " (Pixlcord Installed)", " (تم تثبيت Pixlcord)")
 }
 
 func uiText(text string) string {

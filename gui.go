@@ -201,7 +201,7 @@ func handleErr(di *DiscordInstall, err error, action string) {
 		}
 	}
 
-	ShowErrorModal("Failed to "+action+" this Install.", err.Error(), "https://github.com/viciouscal/Installer/issues")
+	ShowErrorModal("Failed to "+action+" this Install.", err.Error(), "https://github.com/9i505/Pixlcord-Installer/issues")
 }
 
 func HandleScuffedInstall() {
@@ -565,7 +565,7 @@ func renderInstaller() g.Widget {
 					g.Style().SetColor(g.StyleColorText, color.RGBA{0xff, 0xff, 0xff, 0x80}).To(g.Label(uiText(" " + d.path))),
 				}
 				if d.isPatched {
-					widgets = append(widgets, g.Label(uiText(" (Vencord Arab Installed)")))
+					widgets = append(widgets, g.Label(uiText(" (Pixlcord Installed)")))
 				}
 				return g.Column(g.Row(widgets...))
 			}),
@@ -646,7 +646,7 @@ func renderInstaller() g.Widget {
 						g.Button(uiText("Reinstall / Repair")).
 							OnClick(handlePatch).
 							Size((w-40)/4, 50),
-						Tooltip("Reinstall & Update Vencord Arab"),
+						Tooltip("Reinstall & Update Pixlcord"),
 					),
 				g.Style().
 					SetColor(g.StyleColorButton, DiscordRed).
@@ -671,16 +671,16 @@ func renderInstaller() g.Widget {
 			),
 		),
 
-		InfoModal("#patched", "Installed!", "Vencord Arab was successfully installed!"),
-		InfoModal("#unpatched", "Uninstalled", "Vencord Arab has been uninstalled!"),
+		InfoModal("#patched", "Installed!", "Pixlcord was successfully installed!"),
+		InfoModal("#unpatched", "Uninstalled", "Pixlcord has been uninstalled!"),
 		InfoModal("#scuffed-install", "Hold On!", "You have a broken Discord Install.\n"+
 			"Sometimes Discord decides to install to the wrong location for some reason!\n"+
-			"You need to fix this before patching, otherwise Vencord Arab will likely not work.\n\n"+
+			"You need to fix this before patching, otherwise Pixlcord will likely not work.\n\n"+
 			"Use the below button to jump there and delete any folder called Discord or Squirrel.\n"+
 			"If the folder is now empty, feel free to go back a step and delete that folder too.\n"+
 			"Then see if Discord still starts. If not, reinstall it"),
 		RawInfoModal("#openasar-confirm", "OpenAsar", "OpenAsar is an open-source alternative of Discord desktop's app.asar.\n"+
-			"Vencord Arab is in no way affiliated with OpenAsar.\n"+
+			"Pixlcord is in no way affiliated with OpenAsar.\n"+
 			"You're installing OpenAsar at your own risk. If you run into issues with OpenAsar,\n"+
 			"no support will be provided, join the OpenAsar Server instead!\n\n"+
 			"To install OpenAsar, press Accept and click 'Install OpenAsar' again.", "", true),
@@ -766,7 +766,7 @@ func renderMainWindow() {
 			g.Dummy(0, 12),
 			g.Align(g.AlignCenter).To(
 				g.Style().SetFont(uiFont(32)).To(
-					g.Label(uiText("Vencord Arab Installer")),
+					g.Label(uiText("Pixlcord Installer")),
 				),
 			),
 			g.Dummy(0, 20),
@@ -774,7 +774,7 @@ func renderMainWindow() {
 			&CondWidget{
 				GithubFinished.Load() && GithubError != nil,
 				func() g.Widget {
-					return g.Style().SetFont(uiFont(20)).To(renderErrorCard(DiscordRed, color.White, "Failed to fetch Info from GitHub. If this issue persists, visit https://github.com/viciouscal/Installer/issues for help.", 40))
+					return g.Style().SetFont(uiFont(20)).To(renderErrorCard(DiscordRed, color.White, "Failed to fetch Info from GitHub. If this issue persists, visit https://github.com/9i505/Pixlcord-Installer/issues for help.", 40))
 				},
 				nil,
 			},

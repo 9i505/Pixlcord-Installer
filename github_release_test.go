@@ -33,17 +33,17 @@ func TestReleaseFallback(t *testing.T) {
 					return testResponse(r, code, ""), nil
 				case ReleaseUrlFallback:
 					res := testResponse(r, 302, "")
-					res.Header.Set("Location", "https://github.com/viciouscal/Vencord/releases/tag/devbuild")
+					res.Header.Set("Location", "https://github.com/9i505/Pixlcord/releases/tag/devbuild")
 					return res, nil
-				case "https://github.com/viciouscal/Vencord/releases/tag/devbuild":
-					return testResponse(r, 200, "<meta property=\"og:title\" content=\"Release DevBuild abc1234 · viciouscal/Vencord\">"), nil
-				case "https://github.com/viciouscal/Vencord/releases/expanded_assets/devbuild":
-					return testResponse(r, 200, `<a href="/viciouscal/Vencord/releases/download/devbuild/patcher.js">Patcher</a>
-<a href='/viciouscal/Vencord/releases/download/devbuild/renderer.js'>Renderer</a>
-<a href="/viciouscal/Vencord/releases/download/devbuild/patcher.js">Duplicate</a>
+				case "https://github.com/9i505/Pixlcord/releases/tag/devbuild":
+					return testResponse(r, 200, "<meta property=\"og:title\" content=\"Release DevBuild abc1234 · 9i505/Pixlcord\">"), nil
+				case "https://github.com/9i505/Pixlcord/releases/expanded_assets/devbuild":
+					return testResponse(r, 200, `<a href="/9i505/Pixlcord/releases/download/devbuild/patcher.js">Patcher</a>
+<a href='/9i505/Pixlcord/releases/download/devbuild/renderer.js'>Renderer</a>
+<a href="/9i505/Pixlcord/releases/download/devbuild/patcher.js">Duplicate</a>
 <a href="https://github.com/Vendicated/Vencord/releases/download/devbuild/preload.js">Wrong fork</a>
-<a href="https://example.com/viciouscal/Vencord/releases/download/devbuild/renderer.css">Wrong host</a>
-<a href="/viciouscal/Vencord/releases/download/devbuild/..%2Foutside.js">Invalid name</a>`), nil
+<a href="https://example.com/9i505/Pixlcord/releases/download/devbuild/renderer.css">Wrong host</a>
+<a href="/9i505/Pixlcord/releases/download/devbuild/..%2Foutside.js">Invalid name</a>`), nil
 				default:
 					t.Fatalf("unexpected request: %s", r.URL)
 					return nil, nil
@@ -67,7 +67,7 @@ func TestReleaseAPISuccess(t *testing.T) {
 		if r.URL.String() != ReleaseUrl {
 			t.Fatal("unexpected fallback")
 		}
-		return testResponse(r, 200, `{"name":"DevBuild abc1234","tag_name":"devbuild","assets":[{"name":"patcher.js","browser_download_url":"https://github.com/viciouscal/Vencord/releases/download/devbuild/patcher.js"}]}`), nil
+		return testResponse(r, 200, `{"name":"DevBuild abc1234","tag_name":"devbuild","assets":[{"name":"patcher.js","browser_download_url":"https://github.com/9i505/Pixlcord/releases/download/devbuild/patcher.js"}]}`), nil
 	})
 	data, err := GetGithubRelease(ReleaseUrl, ReleaseUrlFallback)
 	if err != nil || data.Name != "DevBuild abc1234" {
@@ -95,7 +95,7 @@ func TestReleaseFallbackErrors(t *testing.T) {
 				}
 				if r.URL.String() == ReleaseUrlFallback {
 					res := testResponse(r, 302, "")
-					location := "https://github.com/viciouscal/Vencord/releases/tag/devbuild"
+					location := "https://github.com/9i505/Pixlcord/releases/tag/devbuild"
 					if scenario == "wrong-repo" {
 						location = "https://github.com/Vendicated/Vencord/releases/tag/devbuild"
 					}

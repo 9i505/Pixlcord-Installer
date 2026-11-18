@@ -7,7 +7,7 @@ import (
 )
 
 func TestWrapUITextFitsAndPreservesWords(t *testing.T) {
-	text := "تم تثبيت فينكورد العرب بنجاح.\nأغلق Discord بالكامل، ثم أعد تشغيله للتحقق من التثبيت."
+	text := "تم تثبيت Pixlcord بنجاح.\nأغلق Discord بالكامل، ثم أعد تشغيله للتحقق من التثبيت."
 	measure := func(value string) float32 { return float32(utf8.RuneCountInString(value)) }
 	lines := wrapUIText(text, 20, measure)
 	for _, line := range lines {

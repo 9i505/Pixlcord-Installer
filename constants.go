@@ -10,12 +10,12 @@ import (
 	"vencordinstaller/buildinfo"
 )
 
-const ReleaseUrl = "https://api.github.com/repos/viciouscal/Vencord/releases/latest"
-const ReleaseUrlFallback = "https://github.com/viciouscal/Vencord/releases/latest"
-const InstallerReleaseUrl = "https://api.github.com/repos/viciouscal/Installer/releases/latest"
-const InstallerReleaseUrlFallback = "https://github.com/viciouscal/Installer/releases/latest"
+const ReleaseUrl = "https://api.github.com/repos/9i505/Pixlcord/releases/latest"
+const ReleaseUrlFallback = "https://github.com/9i505/Pixlcord/releases/latest"
+const InstallerReleaseUrl = "https://api.github.com/repos/9i505/Pixlcord-Installer/releases/latest"
+const InstallerReleaseUrlFallback = "https://github.com/9i505/Pixlcord-Installer/releases/latest"
 
-var UserAgent = "VencordARInstaller/" + buildinfo.InstallerGitHash + " (https://github.com/viciouscal/Installer)"
+var UserAgent = "PixlcordInstaller/" + buildinfo.InstallerGitHash + " (https://github.com/9i505/Pixlcord-Installer)"
 
 var (
 	DiscordGreen        = color.RGBA{0, 133, 69, 0xff}

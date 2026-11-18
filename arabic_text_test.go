@@ -19,7 +19,7 @@ func TestArabicJoiningAndDirection(t *testing.T) {
 		"باب":                   "\ufe8f\ufe8e\ufe91",
 		"لا":                    "\ufefb",
 		"بلا":                   "\ufefc\ufe91",
-		"Vencord Arab 403":      "Vencord Arab 403",
+		"Pixlcord 403":      "Pixlcord 403",
 		`C:\Users\Test\Discord`: `C:\Users\Test\Discord`,
 	}
 	for logical, expected := range cases {
@@ -30,8 +30,8 @@ func TestArabicJoiningAndDirection(t *testing.T) {
 }
 
 func TestArabicMixedTextAndLines(t *testing.T) {
-	actual := visualArabic("تثبيت Vencord Arab 403\nإلغاء")
-	if !strings.Contains(actual, "Vencord Arab 403") || strings.Contains(actual, "dro cneV") || strings.Count(actual, "\n") != 1 {
+	actual := visualArabic("تثبيت Pixlcord 403\nإلغاء")
+	if !strings.Contains(actual, "Pixlcord 403") || strings.Contains(actual, "dro cneV") || strings.Count(actual, "\n") != 1 {
 		t.Fatalf("mixed text or line order corrupted: %q", actual)
 	}
 	if !strings.HasSuffix(actual, "\n"+visualArabic("إلغاء")) {
@@ -99,7 +99,7 @@ func TestLanguageSwitch(t *testing.T) {
 	if translatedUI("Install") != "تثبيت" || uiText("Install") != visualArabic("تثبيت") {
 		t.Fatal("Arabic translation missing")
 	}
-	if !strings.Contains(translatedUI("Discord (Vencord Arab Installed)"), "تم تثبيت") {
+	if !strings.Contains(translatedUI("Discord (Pixlcord Installed)"), "تم تثبيت") {
 		t.Fatal("dynamic status not translated")
 	}
 	uiArabic = false
@@ -112,10 +112,10 @@ func TestProjectBrandAndWarning(t *testing.T) {
 	original := uiArabic
 	t.Cleanup(func() { uiArabic = original })
 	uiArabic = true
-	if translatedUI("Vencord Arab Installer") != "مثبت فينكورد العرب" {
+	if translatedUI("Pixlcord Installer") != "مثبت Pixlcord" {
 		t.Fatal("incorrect Arabic project name")
 	}
-	for _, text := range []string{"فينكورد العرب", "غير تابع", "أزلها", "البرمجيات الخبيثة", "كلمة مرور Discord"} {
+	for _, text := range []string{"Pixlcord", "غير تابع", "أزلها", "البرمجيات الخبيثة", "كلمة مرور Discord"} {
 		if !strings.Contains(safetyWarning(), text) {
 			t.Errorf("Arabic warning missing %q", text)
 		}
@@ -126,7 +126,7 @@ func TestProjectBrandAndWarning(t *testing.T) {
 		}
 	}
 	uiArabic = false
-	for _, text := range []string{"Vencord Arab", "independent", "uninstall", "malware", "Discord password"} {
+	for _, text := range []string{"Pixlcord", "independent", "uninstall", "malware", "Discord password"} {
 		if !strings.Contains(safetyWarning(), text) {
 			t.Errorf("English warning missing %q", text)
 		}

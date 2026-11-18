@@ -14,7 +14,7 @@
   "RT_MANIFEST": {
     "#1": {
       "0409": {
-        "description": "An Installer for the Vencord Arab Discord Mod",
+        "description": "An Installer for the Pixlcord Discord Mod",
         "minimum-os": "win10",
         "execution-level": "as invoker",
         "dpi-awareness": "system"
@@ -26,10 +26,10 @@
       "0000": {
         "info": {
           "0409": {
-            "CompanyName": "Vencord Arab",
-            "FileDescription": "Vencord Arab Installer",
+            "CompanyName": "Pixlcord",
+            "FileDescription": "Pixlcord Installer",
             "LegalCopyright": "© 2023 Vendicated and Contributors - GPL3.0",
-            "ProductName": "Vencord Arab Installer",
+            "ProductName": "Pixlcord Installer",
             "ProductVersion": ""
           }
         }

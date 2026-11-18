@@ -55,7 +55,7 @@ func uiFont(size float32) *g.FontInfo {
 }
 
 func localizedWindowTitle() string {
-	title := translatedUI("Vencord Arab Installer")
+	title := translatedUI("Pixlcord Installer")
 	if buildinfo.InstallerTag == buildinfo.VersionUnknown {
 		title += " [" + translatedUI("Preview") + "]"
 	}
